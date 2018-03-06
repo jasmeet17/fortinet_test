@@ -3,7 +3,8 @@
 <head>
     <style>
       h2{
-        font-size: 10ex;
+        font-size: 5ex;
+        color: red;
       }
       div{
         margin-left: 10px;
@@ -25,49 +26,63 @@
       tr:nth-child(even) {
           background-color: #dddddd;
       }
+      input[type="text"] {
+        width: 200px;
+        height: 24px;
+        font-size: 16px;
+      }
+      button{
+        width: 80px;
+        height: 26px;
+      }
+      .center {
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+        /* border: 3px solid #73AD21; */
+        padding: 5px;
+      }
     </style>
 </head>
 <body>
 
+<img  src="http://cookbook.fortinet.com/wp-content/uploads/2016/11/Fortinet-01.jpg" alt="Fortinet" class="center">
 <h2>Fortinet Test</h2>
-<br><br>
 <div>
+    <ul>
+      <li>
+          <a href="https://github.com/jasmeet17/fortinet_test" target="_blank">Source code on Github</a>
+      </li>
+      <li>
+          <a href="https://github.com/jasmeet17" target="_blank">My Github profile</a>
+      </li>
+    <li>
+        <a href="https://stackoverflow.com/users/2645402/jasmeet?tab=profile" target="_blank">My Stackoverflow profile with 1000+ reputation</a>
+    </li>
+  </ul>
+  </div>
+
+<div >
+    <form  action="." style="margin: 0">
+        <input  id="search_box" type="text" name="search_box"  placeholder="Search..." value={{search}}>
+        <button id="search_submit" type="submit" class="btn" value="Click" name="mybtn">Submit</button>
+    </form>
+    <br>
 <table>
   <tr>
     <th>Company</th>
     <th>WebSite</th>
     <th>Information</th>
   </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-  </tr>
+  {% for row in json %}
+  {% if search|lower in row.6|lower %}
+    <tr>
+      <td> {{ row.6 }} </td>
+      <td> {{ row.7 }} </td>
+      <td> {{ row.9 }} </td>
+    </tr>
+  {% endif %}
+  {% endfor %}
 </table>
 </div>
 </body>

@@ -16,11 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from fortsite.views import hello, my_homepage_view , current_datetime, table
+from fortsite.views import table
 
 urlpatterns = [
-    url(r'^$', my_homepage_view),
-    url(r'^hello/$', hello),
-    url(r'^time/$', current_datetime),
-    url(r'^table/$', table),
+    url(r'^$', table),
 ]
