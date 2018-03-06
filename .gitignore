@@ -1,2 +1,6 @@
 #remove any compiled code
 *.pyc
+venv
+staticfiles
+.env
+db.sqlite3
